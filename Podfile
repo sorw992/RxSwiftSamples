@@ -9,6 +9,8 @@ target 'RxSwiftSamples' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxBlocking'
+  
+  # we used it to split our table view in sections
   pod 'RxDataSources'
 
 end
