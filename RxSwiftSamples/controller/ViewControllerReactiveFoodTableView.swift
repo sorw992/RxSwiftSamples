@@ -10,23 +10,75 @@ import RxSwift
 import RxCocoa
 
 class ViewControllerReactiveFoodTableView: UIViewController {
-   
+    
     // 1- transform our array of strings into an observable sequence that will become the datasource of the table view. this will be the datasource for table view. so whe have to use Observable.just() operator
     //let tableViewItems = ["item 1", "item 2", "item 3", "item 4"]
     // just operator means our observable will emit all these four elements
-    let tableViewItems = Observable.just([Food(name: "Hamburger", image: "hamburger"), Food(name: "Pizza", image: "pizza"), Food(name: "Salmon", image: "salmon"), Food(name: "Spaghetti", image: "spaghetti")])
+    // we have to transform our observable to a behavior relay because tableViewItems that is an Observable doesn't allow us to access directy the array that it emits and we won't be able to filter it when we perform the search. that's why we need to transform it to a behavior relay.
+    /* let tableViewItems = Observable.just([
+     Food(name: "Hamburger", image: "hamburger"),
+     Food(name: "Pizza", image: "pizza"),
+     Food(name: "Salmon", image: "salmon"),
+     Food(name: "Spaghetti", image: "spaghetti"),
+     Food(name: "Cake", image: "cake"),
+     Food(name: "Tiramisu", image: "tiramisu"),
+     Food(name: "Ribs", image: "ribs"),
+     Food(name: "Saladveggy", image: "saladveggy"),
+     Food(name: "Saladcheese", image: "saladcheese"),
+     Food(name: "Curry", image: "curry"),
+     Food(name: "Clubsandwich", image: "clubsandwich"),
+     Food(name: "Pancake", image: "pancake")
+     ]) */
+    let tableViewItems = BehaviorRelay.init(value: [
+        Food(name: "Hamburger", image: "hamburger"),
+        Food(name: "Pizza", image: "pizza"),
+        Food(name: "Salmon", image: "salmon"),
+        Food(name: "Spaghetti", image: "spaghetti"),
+        Food(name: "Cake", image: "cake"),
+        Food(name: "Tiramisu", image: "tiramisu"),
+        Food(name: "Ribs", image: "ribs"),
+        Food(name: "Saladveggy", image: "saladveggy"),
+        Food(name: "Saladcheese", image: "saladcheese"),
+        Food(name: "Curry", image: "curry"),
+        Food(name: "Clubsandwich", image: "clubsandwich"),
+        Food(name: "Pancake", image: "pancake")
+    ])
     
     let disposebag = DisposeBag()
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Summary: we used rx text Observable property from the searchBar in order to obtain the query issued by the user then we used a map to filter operators in order to obtain the filter food items and finally we bind those to the table view's rows
+        // text is an Observable property offered by RxCocoa and in case the searchBar is empty, we still want to display all the food items so we are using orEmpty for that
+        // add a bit delay after user types in, we use throttle for that and add 5 seconds on main scheduler
+        let foodQuery = searchBar.rx.text.orEmpty
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
         
-        // 2- bind tableViewItems (Observable) to our table view.
-        tableViewItems
-        // bind the observable(tableViewItems) to the code that executes each row in the table view with the aid of the rx item cell identifier method
+        // protect us from the same values
+            .distinctUntilChanged()
+        
+        // use map operator to return filtered values
+            .map { query in
+                
+                // we used filter operator for this and we receive each food object
+                self.tableViewItems.value.filter({
+                    food in
+                    
+                    // all that is ti check that it contains the query or if the query is empty, we still want to see the values on the screen
+                    query.isEmpty || food.name.lowercased().contains(query.lowercased())
+                    
+                    
+                    
+                })
+                
+            }
+        // bind query to our table view.
+        // bind the observable query to the code that executes each row in the table view with the aid of the rx item cell identifier method
             .bind(to: tableView
                 .rx
                   // executes each row in the table view with items(cellIdentifier) method
@@ -90,7 +142,7 @@ class ViewControllerReactiveFoodTableView: UIViewController {
             } onCompleted: {
                 
             } onDisposed: {
-              
+                
             }
             .disposed(by: disposebag)
         
