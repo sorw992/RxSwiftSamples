@@ -9,5 +9,6 @@ target 'RxSwiftSamples' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxBlocking'
+  pod 'RxDataSources'
 
 end

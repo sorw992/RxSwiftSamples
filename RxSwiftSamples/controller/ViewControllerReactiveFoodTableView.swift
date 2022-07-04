@@ -55,7 +55,7 @@ class ViewControllerReactiveFoodTableView: UIViewController {
         
         // Summary: we used rx text Observable property from the searchBar in order to obtain the query issued by the user then we used a map to filter operators in order to obtain the filter food items and finally we bind those to the table view's rows
         // text is an Observable property offered by RxCocoa and in case the searchBar is empty, we still want to display all the food items so we are using orEmpty for that
-        // add a bit delay after user types in, we use throttle for that and add 5 seconds on main scheduler
+        // add a bit delay after user types in, we use throttle for that and add 300 milliseconds on main scheduler
         let foodQuery = searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
         
