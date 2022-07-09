@@ -118,6 +118,8 @@ class ViewControllerReactiveFoodTableView: UIViewController {
                         food in
                         
                         // all that is it checks that it contains the query or if the query is empty, we still want to see the values on the screen
+                        // query.isEmpty: if searchBar text is empty we will see all the items
+                        // food.name.lowercased().contains(query.lowercased()) returns true if result found
                         query.isEmpty || food.name.lowercased().contains(query.lowercased())
                     }))
                 })
