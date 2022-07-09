@@ -75,7 +75,7 @@ class ViewControllerLogin: UIViewController {
         // password must have at least 6 characters
         let passValid: Bool = (pass != "" && pass.count >= 6)
         
-        if emailValid && passValid {
+        if (emailValid && passValid) {
             let viewControllerFoodList = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerReactiveFoodTableView") as! ViewControllerReactiveFoodTableView
             self.navigationController?.pushViewController(viewControllerFoodList, animated: true)
         } else {
