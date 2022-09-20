@@ -141,6 +141,10 @@ class ViewControllerReactiveFoodTableView: UIViewController {
         // modelSelected is for receiving modal object and itemSelected receives indexpath (classic)
             .rx.modelSelected(Food.self)
         
+        // rxswift debug operator
+        // rxswift debug memory: rxswift offers global variable taht holds all allocated resources called resources.total - to use it we need to enable debugmode in Pods "setting/build setting/other swift flags/ -D TRACE RESOURCES" first
+        //.debug("my rx debug")
+        
             .subscribe { foodObject in
                 // onNext method
                 let foodVC = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerFoodDetail") as! ViewControllerFoodDetail

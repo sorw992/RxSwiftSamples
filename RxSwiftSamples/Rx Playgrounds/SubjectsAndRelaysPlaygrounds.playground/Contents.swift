@@ -45,6 +45,8 @@ pSub.onNext("PublishSubject E1 2")
 // our subject will emits elements of type string
 // you cant create a behavior subject without initial value
 let bSub = BehaviorSubject<String>(value: "BehaviorSubject E1 1")
+//bSub.onNext("BehaviorSubject E1 2")
+
 
 let observer2 = bSub.subscribe(onNext: {
     elem in

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F94224AB28D9CB1A00C43376 /* TableViewControllerMainRxSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94224AA28D9CB1A00C43376 /* TableViewControllerMainRxSamples.swift */; };
 		F946435D28730B0300F87592 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946435C28730B0300F87592 /* SectionModel.swift */; };
 		F995F6CE286C3BF6001ED7A3 /* ViewControllerTabOrHoldCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F995F6CD286C3BF5001ED7A3 /* ViewControllerTabOrHoldCounter.swift */; };
 		F995F6D0286C437B001ED7A3 /* ViewControllerTipCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F995F6CF286C437B001ED7A3 /* ViewControllerTipCalculator.swift */; };
@@ -37,6 +38,7 @@
 		D251D3512412CD831B8BE03F /* Pods-Tapcounter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tapcounter.release.xcconfig"; path = "Target Support Files/Pods-Tapcounter/Pods-Tapcounter.release.xcconfig"; sourceTree = "<group>"; };
 		EAA204171754060C418A1DB1 /* Pods-Tapcounter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tapcounter.debug.xcconfig"; path = "Target Support Files/Pods-Tapcounter/Pods-Tapcounter.debug.xcconfig"; sourceTree = "<group>"; };
 		F55203BCBAD65C3C1D1C8D56 /* Pods_RxSwiftSamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F94224AA28D9CB1A00C43376 /* TableViewControllerMainRxSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMainRxSamples.swift; sourceTree = "<group>"; };
 		F946435C28730B0300F87592 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		F995F6CD286C3BF5001ED7A3 /* ViewControllerTabOrHoldCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTabOrHoldCounter.swift; sourceTree = "<group>"; };
 		F995F6CF286C437B001ED7A3 /* ViewControllerTipCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTipCalculator.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		F9D41050286EE84B008B8044 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				F94224AA28D9CB1A00C43376 /* TableViewControllerMainRxSamples.swift */,
 				F9AA171428784EA200C9BFB6 /* ViewControllerLogin.swift */,
 				F995F6D1286CC810001ED7A3 /* ViewControllerReactiveFoodTableView.swift */,
 				F9D4104C286EAC85008B8044 /* FoodTableViewCell.swift */,
@@ -309,6 +312,7 @@
 				F995F6D6286CD080001ED7A3 /* ViewControllerSwipeToDismissKeyboard.swift in Sources */,
 				F9AA171528784EA200C9BFB6 /* ViewControllerLogin.swift in Sources */,
 				F9D6FBAD286BFCF10039ADF0 /* AppDelegate.swift in Sources */,
+				F94224AB28D9CB1A00C43376 /* TableViewControllerMainRxSamples.swift in Sources */,
 				F9D6FBAF286BFCF10039ADF0 /* SceneDelegate.swift in Sources */,
 				F995F6CE286C3BF6001ED7A3 /* ViewControllerTabOrHoldCounter.swift in Sources */,
 			);

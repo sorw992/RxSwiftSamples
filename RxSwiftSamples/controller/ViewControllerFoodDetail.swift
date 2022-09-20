@@ -36,7 +36,12 @@ class ViewControllerFoodDetail: UIViewController {
         
         // map operator is used to transform the values emitted by an observable
         // elem get transformed according to our needs
-        imageName.map { name in
+        imageName.map {
+            name in
+            
+            // problem - debugging memory leaks
+            // print("Resources count: \(RxSwift.Resources)")
+            
             UIImage.init(named: name)
         }
         // we use bind() method to bind the UIImage object to the imageView's image
