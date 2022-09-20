@@ -1,16 +1,13 @@
 
-//
-//  RxSwift Samples
-//
-//  Created by Soroush Sarlak on 6/29/22.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa
 
 class ViewControllerTabOrHoldCounter: UIViewController {
     
+    @IBAction func btnBack(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBOutlet weak var btnTap: UIButton!
     

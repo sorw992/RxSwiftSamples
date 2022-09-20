@@ -50,7 +50,7 @@ class ViewControllerTipCalculator: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        // done button in UIToolbar
         doneButton.rx.tap.subscribe({
             [weak self] _ in
             guard let this = self else {

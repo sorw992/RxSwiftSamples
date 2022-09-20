@@ -1,11 +1,4 @@
 
-
-//
-//  RxSwift Samples
-//
-//  Created by Soroush Sarlak on 6/29/22.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa

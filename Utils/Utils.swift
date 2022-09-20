@@ -1,8 +1,3 @@
-//
-//  RxSwift Samples
-//
-//  Created by Soroush Sarlak on 6/29/22.
-//
 
 import Foundation
 import UIKit
@@ -13,4 +8,10 @@ func displayAlert(title: String, message: String, vc: UIViewController) {
     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
     vc.present(alert, animated: true, completion: nil)
     
+}
+
+func push(identifier: String, self: UIViewController) {
+    if let destinationViewController = self.storyboard?.instantiateViewController(withIdentifier: identifier) {
+        self.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
 }
